@@ -146,13 +146,33 @@ class Posts extends Controller
             }
 
             if ($this->postModel->deletePost($id)) {
-                flash('post_message', 'Post Removed');
+                flash('post_message', 'Hír sikeresen törölve');
                 redirect('posts');
             } else {
                 die('Something went wrong');
             }
         } else {
             redirect('posts');
+        }
+    }
+
+    public function comment($id) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'post_id' => $id,
+                'user_id' => $_SESSION['user_id'],
+                'comment' => trim($_POST['comment'])
+            ];
+
+            if ($this->postModel->addCommentToPost($data)) {
+                flash('comments_message', 'Vélemény sikeresen hozzáadva');
+                redirect('posts/show/' . $id);
+            } else {
+                die('Hiba a művelet során');
+            }
+
         }
     }
 }

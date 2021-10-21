@@ -90,11 +90,25 @@ class Post
                         comments.comment as comment
                         FROM comments
                         INNER JOIN users
-                        ON users.id = comments.id
+                        ON users.id = comments.user_id
                         where comments.post_id = :commentId
                         ');
         $this->db->bind(':commentId', $commentId);
 
         return $this->db->resultSet();
+    }
+    public function addCommentToPost($data) {
+        $this->db->query('INSERT INTO comments (post_id, user_id, comment) VALUES(:post_id, :user_id, :comment)');
+        // Bind values
+        $this->db->bind(':post_id', $data['post_id']);
+        $this->db->bind(':user_id', $data['user_id']);
+        $this->db->bind(':comment', $data['comment']);
+
+        // Execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
