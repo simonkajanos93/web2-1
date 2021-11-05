@@ -18,7 +18,7 @@
     <nav id="page-main-nav" class="nav d-flex justify-content-between mw-30">
         <a class="p-2 text-muted" href="<?php echo URLROOT; ?>">Főoldal</a>
         <a class="p-2 text-muted" href="<?php echo URLROOT; ?>/posts">Hírek</a>
-        <a class="p-2 text-muted" href="#">MNB</a>
+        <a class="p-2 text-muted" href="<?php echo URLROOT; ?>/pages/mnb">MNB</a>
         <a class="p-2 text-muted" href="#">SOAP</a>
     </nav>
 </div>
