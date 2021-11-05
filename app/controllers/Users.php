@@ -17,7 +17,6 @@ class Users extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             // Init data
-            var_dump($_POST);
             $data = [
                 'name' => trim($_POST['name']),
                 'email' => trim($_POST['email']),
