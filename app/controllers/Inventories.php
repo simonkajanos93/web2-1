@@ -27,10 +27,8 @@ class Inventories extends Controller
 
         //ini_set("default_socket_timeout", 5000);
         $options = array(
-            "location" => "http://localhost/inventories/api",
-            "uri" => "http://localhost/inventories/api",
-            //"location" => URLROOT . "/soap/api",
-            //"uri" => URLROOT . "/soap/api",
+            "location" => URLROOT . "/inventories/api",
+            "uri" => URLROOT . "/inventories/api",
             'keep_alive' => false,
         );
         try {
