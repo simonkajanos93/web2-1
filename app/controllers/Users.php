@@ -189,7 +189,6 @@ class Users extends Controller
 
     public function createUserSession($user)
     {
-        var_dump($user);
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_email'] = $user->email;
         $_SESSION['user_name'] = $user->name;
