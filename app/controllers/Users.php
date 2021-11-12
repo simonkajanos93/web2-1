@@ -34,17 +34,17 @@ class Users extends Controller
 
             // Validate Email
             if (empty($data['email'])) {
-                $data['email_err'] = 'Pleae enter email';
+                $data['email_err'] = 'Írjon be e-mail címet';
             } else {
                 // Check email
                 if ($this->userModel->findUserByEmail($data['email'])) {
-                    $data['email_err'] = 'Email is already taken';
+                    $data['email_err'] = 'Ez az e-mail már foglalt';
                 }
             }
 
             // Validate Name
             if (empty($data['name'])) {
-                $data['name_err'] = 'Pleae enter name';
+                $data['name_err'] = 'Adjon meg felhasználónevet';
             }
 
             if (empty($data['first_name'])) {
@@ -57,17 +57,17 @@ class Users extends Controller
 
             // Validate Password
             if (empty($data['password'])) {
-                $data['password_err'] = 'Pleae enter password';
+                $data['password_err'] = 'Adjon meg jelszót';
             } elseif (strlen($data['password']) < 6) {
-                $data['password_err'] = 'Password must be at least 6 characters';
+                $data['password_err'] = 'A jelszónak legalább 6 karakter hosszúnak kell lennie';
             }
 
             // Validate Confirm Password
             if (empty($data['confirm_password'])) {
-                $data['confirm_password_err'] = 'Pleae confirm password';
+                $data['confirm_password_err'] = 'Erősítse meg a jelszót';
             } else {
                 if ($data['password'] != $data['confirm_password']) {
-                    $data['confirm_password_err'] = 'Passwords do not match';
+                    $data['confirm_password_err'] = 'A jelszavak nem egyeznek';
                 }
             }
 
@@ -137,12 +137,12 @@ class Users extends Controller
 
             // Validate Email
             if (empty($data['email'])) {
-                $data['email_err'] = 'Pleae enter email';
+                $data['email_err'] = 'Írjon be egy e-mail címet';
             }
 
             // Validate Password
             if (empty($data['password'])) {
-                $data['password_err'] = 'Please enter password';
+                $data['password_err'] = 'Adjon meg jelszót';
             }
 
             // Check for user/email
@@ -150,7 +150,7 @@ class Users extends Controller
                 // User found
             } else {
                 // User not found
-                $data['email_err'] = 'No user found';
+                $data['email_err'] = 'Nincs ilyen felhasználó';
             }
 
             // Make sure errors are empty
@@ -163,7 +163,7 @@ class Users extends Controller
                     // Create Session
                     $this->createUserSession($loggedInUser);
                 } else {
-                    $data['password_err'] = 'Password incorrect';
+                    $data['password_err'] = 'Helytelen jelszó';
 
                     $this->view('users/login', $data);
                 }
