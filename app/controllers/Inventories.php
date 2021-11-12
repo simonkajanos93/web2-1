@@ -51,8 +51,9 @@ class Inventories extends Controller
     public function api()
     {
         $options = array(
-            "uri" => "http://localhost/inventories/api"
-            //"uri" => URLROOT . "/soap/api"
+            //"uri" => "http://localhost/inventories/api"
+            "uri" => URLROOT . "/soap/api",
+            'encoding'=>'ISO-8859-1'
         );
         $server = new SoapServer(null, $options);
         $server->setObject($this);
