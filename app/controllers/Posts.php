@@ -42,7 +42,7 @@ class Posts extends Controller
             if (empty($data['title_err']) && empty($data['body_err'])) {
                 // Validated
                 if ($this->postModel->addPost($data)) {
-                    flash('post_message', 'Post Added');
+                    flash('post_message', 'Hír hozzáadva');
                     redirect('posts');
                 } else {
                     die('Something went wrong');
@@ -89,7 +89,7 @@ class Posts extends Controller
             if (empty($data['title_err']) && empty($data['body_err'])) {
                 // Validated
                 if ($this->postModel->updatePost($data)) {
-                    flash('post_message', 'Post Updated');
+                    flash('post_message', 'Hír frissítve');
                     redirect('posts');
                 } else {
                     die('Something went wrong');
